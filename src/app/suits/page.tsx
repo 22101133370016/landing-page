@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 interface ImageData {
   id: string;
@@ -25,6 +25,7 @@ export default function Suits() {
     <section className="p-8">
       <h1 className="text-4xl font-bold text-center mb-8">Suits Collection</h1>
       <p className="text-center mb-8">Discover our premium collection of suits for every occasion.</p>
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <Link href={{ pathname: "/contact", query: { image: "/image1/suit1.jpg" } }}>
           <Image
@@ -75,6 +76,7 @@ export default function Suits() {
           </Link>
         ))}
       </div>
+
       <div className="mt-10 text-center">
         <Link href="/" className="text-blue-500 underline">
           ← Back to Home

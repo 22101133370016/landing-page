@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Image from 'next/image';
+// Removed: import Image from 'next/image';
 
 export const metadata = {
   title: "Women's Fashion - Pambakali Outfit Store",

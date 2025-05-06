@@ -1,4 +1,3 @@
-
 'use client';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -18,7 +17,7 @@ export default function Navbar() {
         <Link href="/suits">Suits</Link>
         <Link href="/jeans">Jeans</Link>
         <Link href="/shirts">Shirts</Link>
-        <Link href="/women">Women's Fashion</Link>
+        <Link href="/women">Women&apos;s Fashion</Link>
         <Link href="/contact">Contact</Link>
         <Link href="/upload-image">Upload Image</Link>
         <Link href="/image-gallery">Image Gallery</Link>

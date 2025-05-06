@@ -61,9 +61,8 @@ export default function ContactPage() {
     <section className="bg-gray-100 py-20 text-center min-h-screen">
       <h1 className="text-4xl font-bold mb-6">Contact Us</h1>
       <p className="text-lg text-gray-600 mb-12">
-        Fill in the form below and we’ll get back to you shortly.
+        Fill in the form below and we&apos;ll get back to you shortly.
       </p>
-      {/* Removed Upload Image button as per request */}
 
       {selectedImage && (
         <div className="max-w-xs mx-auto mb-8">

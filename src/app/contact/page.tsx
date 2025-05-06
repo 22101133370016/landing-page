@@ -6,6 +6,14 @@ import { useForm } from 'react-hook-form';
 import Image from 'next/image';
 import emailjs from '@emailjs/browser';
 
+type FormData = {
+  name: string;
+  email: string;
+  phone: string;
+  location: string;
+  message: string;
+};
+
 export default function ContactClient() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -15,21 +23,26 @@ export default function ContactClient() {
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    const image = searchParams.get("image");
+    const image = searchParams.get('image');
     setSelectedImage(image);
   }, [searchParams]);
 
-  const { register, handleSubmit, formState: { errors }, reset } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<FormData>();
 
-  const onSubmit = async (data: any) => {
+  const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
-    setSubmitError("");
+    setSubmitError('');
     setSubmitSuccess(false);
 
     try {
-      const serviceId = "service_8vm9pau";
-      const templateId = "template_lsnej47";
-      const publicKey = "S_vGyYgW99Qdj32Gi";
+      const serviceId = 'service_8vm9pau';
+      const templateId = 'template_lsnej47';
+      const publicKey = 'S_vGyYgW99Qdj32Gi';
 
       const templateParams = {
         ...data,
@@ -39,14 +52,18 @@ export default function ContactClient() {
       const result = await emailjs.send(serviceId, templateId, templateParams, publicKey);
 
       if (result.status !== 200) {
-        throw new Error("Failed to send email");
+        throw new Error('Failed to send email');
       }
 
       setSubmitSuccess(true);
       reset();
-    } catch (error: any) {
-      console.error("EmailJS send error:", error);
-      setSubmitError(error.message || "Failed to send your message. Please try again later.");
+    } catch (error: unknown) {
+      console.error('EmailJS send error:', error);
+      if (error instanceof Error) {
+        setSubmitError(error.message);
+      } else {
+        setSubmitError('An unknown error occurred.');
+      }
     } finally {
       setIsSubmitting(false);
     }
@@ -61,10 +78,10 @@ export default function ContactClient() {
 
       {selectedImage && (
         <div className="max-w-xs mx-auto mb-8">
-          {selectedImage.startsWith("data:") ? (
+          {selectedImage.startsWith('data:') ? (
             <div className="relative w-full" style={{ height: '300px' }}>
-              <Image 
-                src={selectedImage} 
+              <Image
+                src={selectedImage}
                 alt="Selected Product"
                 fill
                 style={{ objectFit: 'contain' }}
@@ -72,23 +89,76 @@ export default function ContactClient() {
               />
             </div>
           ) : (
-            <Image 
-              src={selectedImage} 
-              alt="Selected Product" 
-              width={300} 
-              height={300} 
-              className="rounded-lg shadow-md" 
+            <Image
+              src={selectedImage}
+              alt="Selected Product"
+              width={300}
+              height={300}
+              className="rounded-lg shadow-md"
             />
           )}
-          <p className="mt-2 text-sm text-gray-700">You are sending a message about this product.</p>
+          <p className="mt-2 text-sm text-gray-700">
+            You are sending a message about this product.
+          </p>
         </div>
       )}
 
       <div className="max-w-3xl mx-auto bg-white rounded-xl shadow-md p-8 text-left">
         <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
-          {/* Form fields: name, email, phone, location, message */}
-          {/* Error and success messages */}
-          {/* Submit button */}
+          <div>
+            <label className="block font-medium">Name</label>
+            <input
+              {...register('name', { required: 'Name is required' })}
+              className="w-full border p-2 rounded"
+            />
+            {errors.name && <p className="text-red-500">{errors.name.message}</p>}
+          </div>
+
+          <div>
+            <label className="block font-medium">Email</label>
+            <input
+              {...register('email', { required: 'Email is required' })}
+              type="email"
+              className="w-full border p-2 rounded"
+            />
+            {errors.email && <p className="text-red-500">{errors.email.message}</p>}
+          </div>
+
+          <div>
+            <label className="block font-medium">Phone</label>
+            <input
+              {...register('phone')}
+              className="w-full border p-2 rounded"
+            />
+          </div>
+
+          <div>
+            <label className="block font-medium">Location</label>
+            <input
+              {...register('location')}
+              className="w-full border p-2 rounded"
+            />
+          </div>
+
+          <div>
+            <label className="block font-medium">Message</label>
+            <textarea
+              {...register('message', { required: 'Message is required' })}
+              className="w-full border p-2 rounded"
+            />
+            {errors.message && <p className="text-red-500">{errors.message.message}</p>}
+          </div>
+
+          {submitError && <p className="text-red-600">{submitError}</p>}
+          {submitSuccess && <p className="text-green-600">Message sent successfully!</p>}
+
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700"
+          >
+            {isSubmitting ? 'Sending...' : 'Send Message'}
+          </button>
         </form>
       </div>
     </section>

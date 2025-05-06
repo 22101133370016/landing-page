@@ -72,9 +72,23 @@ export default function ContactPage() {
       {selectedImage && (
         <div className="max-w-xs mx-auto mb-8">
           {selectedImage.startsWith("data:") ? (
-            <img src={selectedImage} alt="Selected Product" className="rounded-lg shadow-md w-full h-auto" />
+            <div className="relative w-full" style={{ height: '300px' }}>
+              <Image 
+                src={selectedImage} 
+                alt="Selected Product"
+                fill
+                style={{ objectFit: 'contain' }}
+                className="rounded-lg shadow-md"
+              />
+            </div>
           ) : (
-            <Image src={selectedImage} alt="Selected Product" width={300} height={300} className="rounded-lg shadow-md" />
+            <Image 
+              src={selectedImage} 
+              alt="Selected Product" 
+              width={300} 
+              height={300} 
+              className="rounded-lg shadow-md" 
+            />
           )}
           <p className="mt-2 text-sm text-gray-700">You are sending a message about this product.</p>
         </div>

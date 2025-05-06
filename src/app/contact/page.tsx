@@ -51,7 +51,7 @@ export default function ContactClient() {
 
       const result = await emailjs.send(serviceId, templateId, templateParams, publicKey);
 
-      if (result.status !== 200) {
+      if (result.status !== 200 && result.text !== 'OK') {
         throw new Error('Failed to send email');
       }
 
@@ -155,7 +155,7 @@ export default function ContactClient() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700"
+            className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 disabled:opacity-60"
           >
             {isSubmitting ? 'Sending...' : 'Send Message'}
           </button>

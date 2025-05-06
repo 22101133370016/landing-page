@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 const categories = [
   { title: 'Suits', image: '/images/soot4.jpg' },
@@ -62,7 +63,16 @@ export default function Home() {
                 href={href}
                 className="block relative rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
               >
-                <img src={category.image} alt={category.title} className="w-full h-64 object-cover" />
+                <div className="relative w-full h-64">
+                  <Image 
+                    src={category.image} 
+                    alt={category.title} 
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    style={{ objectFit: 'cover' }}
+                    priority={category.title === 'Suits'} // Prioritize loading the first image
+                  />
+                </div>
                 <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
                   <h4 className="text-2xl font-semibold text-white">{category.title}</h4>
                 </div>

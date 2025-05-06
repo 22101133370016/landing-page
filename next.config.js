@@ -1,11 +1,10 @@
-// next.config.js
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    webpack(config, { isServer }) {
-      config.infrastructureLogging = { level: 'verbose' };
-      return config;
-    },
-  };
-  
-  module.exports = nextConfig;
-  
+  experimental: {
+    turbo: true,
+  },
+  output: 'standalone',
+  // Add any other necessary Next.js config options here
+};
+
+module.exports = nextConfig;

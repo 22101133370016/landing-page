@@ -45,8 +45,12 @@ export default function ContactPage() {
 
       setSubmitSuccess(true);
       reset();
-    } catch (error: any) {
-      setSubmitError(error.message || 'Failed to send your message. Please try again later.');
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        setSubmitError(error.message || 'Failed to send your message. Please try again later.');
+      } else {
+        setSubmitError('Failed to send your message. Please try again later.');
+      }
     } finally {
       setIsSubmitting(false);
     }

@@ -11,10 +11,10 @@ const categories = [
 
 export const metadata = {
   title: "Pambakali Outfit Store - Premium Fashion for Everyone",
-  description: "Discover the best in fashion: suits, t-shirts, jeans, shirts, shoes, and women’s clothing.",
+  description: "Discover the best in fashion: suits, t-shirts, jeans, shirts, shoes, and women&apos;s clothing.",
   openGraph: {
     title: "Pambakali Outfit Store - Premium Fashion for Everyone",
-    description: "Discover the best in fashion: suits, t-shirts, jeans, shirts, shoes, and women’s clothing.",
+    description: "Discover the best in fashion: suits, t-shirts, jeans, shirts, shoes, and women&apos;s clothing.",
     images: [
       {
         url: "/images/womenfashion.jpg",
@@ -33,7 +33,7 @@ export default function Home() {
       <section className="bg-gradient-to-r from-black to-gray-800 text-white py-20 text-center">
         <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6">Welcome to Pambakali Outfit Store</h2>
         <p className="text-lg sm:text-xl md:text-2xl mb-8">
-          Discover the best in fashion: suits, t-shirts, jeans, shirts, shoes, and women’s clothing.
+          Discover the best in fashion: suits, t-shirts, jeans, shirts, shoes, and women&apos;s clothing.
         </p>
         <button className="bg-yellow-500 text-white px-6 py-3 rounded-full text-lg hover:bg-yellow-600 transition">
           Shop Now
@@ -93,7 +93,7 @@ export default function Home() {
       <section id="contact" className="py-20 text-center">
         <h3 className="text-3xl sm:text-4xl font-semibold mb-6">Contact Us</h3>
         <p className="text-lg sm:text-xl text-gray-600 mb-8">
-          Have questions or need assistance? We’re here to help!
+          Have questions or need assistance? We&apos;re here to help!
         </p>
         <button className="bg-yellow-500 text-white px-6 py-3 rounded-full text-lg hover:bg-yellow-600 transition">
           Contact Us

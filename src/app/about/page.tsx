@@ -8,7 +8,7 @@ export default function About() {
     <section className="p-8 max-w-4xl mx-auto">
       <h1 className="text-4xl font-bold mb-6">About Pambakali Outfit Store</h1>
       <p className="text-lg mb-4">
-        Welcome to Pambakali Outfit Store! We are dedicated to providing the latest fashion trends in suits, t-shirts, jeans, shirts, shoes, and women's fashion.
+        Welcome to Pambakali Outfit Store! We are dedicated to providing the latest fashion trends in suits, t-shirts, jeans, shirts, shoes, and women&apos;s fashion.
       </p>
       <p className="text-lg mb-4">
         Our mission is to offer high-quality clothing for all ages and styles, ensuring you look and feel your best.

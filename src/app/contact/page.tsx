@@ -1,5 +1,4 @@
 'use client';
-"use client";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useSearchParams } from "next/navigation";

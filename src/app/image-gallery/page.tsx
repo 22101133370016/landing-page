@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 
 interface ImageData {
   id: string;
@@ -53,7 +54,23 @@ export default function ImageGalleryPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {filteredImages.map((img) => (
             <div key={img.id} className="border rounded-md overflow-hidden shadow-md">
-              <img src={img.url} alt={img.category} className="w-full h-48 object-cover" />
+              <div className="relative w-full h-48">
+                {img.url.startsWith("data:") ? (
+                  <Image 
+                    src={img.url} 
+                    alt={img.category} 
+                    fill
+                    style={{ objectFit: "cover" }}
+                  />
+                ) : (
+                  <Image 
+                    src={img.url} 
+                    alt={img.category} 
+                    fill
+                    style={{ objectFit: "cover" }}
+                  />
+                )}
+              </div>
               <div className="p-2 text-center font-semibold">{img.category}</div>
             </div>
           ))}

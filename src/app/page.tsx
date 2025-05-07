@@ -87,7 +87,7 @@ export default function Home() {
         <h3 className="text-4xl font-semibold text-center mb-16 text-gray-900">
           Shop by Categories
         </h3>
-        <div className="grid grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {categories.map((category) => {
             const folderMap: Record<string, string> = {
               'Suits': 'suits',
@@ -104,12 +104,12 @@ export default function Home() {
                 href={href}
                 className="block relative rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
               >
-                <div className="relative w-full h-64">
+                <div className="relative w-full aspect-[4/3]">
                   <Image 
                     src={category.image} 
                     alt={category.title} 
                     fill
-                    sizes="33vw"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     style={{ objectFit: 'cover' }}
                     priority={category.title === 'Suits'} // Prioritize loading the first image
                   />

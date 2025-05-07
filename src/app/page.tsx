@@ -31,7 +31,7 @@ export default function Home() {
   return (
     <div id="home" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-black to-gray-800 text-white py-20 text-center rounded-lg shadow-lg relative overflow-hidden">
+      <section className="bg-gradient-to-r from-gray-100 to-gray-300 text-gray-900 py-24 text-center rounded-lg shadow-2xl relative overflow-hidden">
         <style>{`
           .star {
             position: absolute;
@@ -53,7 +53,7 @@ export default function Home() {
           .marquee {
             display: inline-block;
             white-space: nowrap;
-            color: #FFD700;
+            color: #B8860B; /* dark goldenrod */
             font-weight: 900;
             font-size: 3.75rem; /* text-6xl */
             animation: marquee 10s linear infinite;
@@ -65,7 +65,7 @@ export default function Home() {
           .contact-marquee {
             display: inline-block;
             white-space: nowrap;
-            color: #FFD700;
+            color: #B8860B;
             font-weight: 700;
             font-size: 1.25rem; /* text-xl */
             animation: marquee 30s linear infinite;
@@ -95,23 +95,23 @@ export default function Home() {
           );
         })}
 
-        <h2 className="mb-6 leading-tight relative z-10">
+        <h2 className="mb-8 leading-tight relative z-10 text-5xl sm:text-6xl font-extrabold tracking-tight">
           <span className="marquee">Welcome to Pambakali Outfit Store</span>
         </h2>
-        <p className="text-2xl mb-8 max-w-3xl mx-auto leading-relaxed relative z-10">
+        <p className="text-3xl mb-12 max-w-3xl mx-auto leading-relaxed relative z-10 text-yellow-700">
           Discover the best in fashion: suits, t-shirts, jeans, shirts, shoes, and women&apos;s clothing.
         </p>
-        <button className="bg-yellow-500 text-white px-8 py-4 rounded-full text-xl hover:bg-yellow-600 transition-shadow shadow-md hover:shadow-xl relative z-10">
+        <button className="bg-yellow-500 text-black font-semibold px-10 py-5 rounded-full text-2xl hover:bg-yellow-600 transition-shadow shadow-lg hover:shadow-2xl relative z-10">
           Shop Now
         </button>
       </section>
 
       {/* Categories Section */}
-      <section id="shop" className="py-20">
-        <h3 className="text-4xl font-semibold text-center mb-16 text-gray-900">
+      <section id="shop" className="py-24">
+        <h3 className="text-5xl font-extrabold text-center mb-20 text-gray-900">
           Shop by Categories
         </h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
           {categories.map((category) => {
             const folderMap: Record<string, string> = {
               'Suits': 'suits',
@@ -126,7 +126,7 @@ export default function Home() {
               <Link
                 key={category.title}
                 href={href}
-                className="block relative rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
+                className="block relative rounded-2xl overflow-hidden shadow-2xl hover:shadow-4xl transition-all duration-500"
               >
                 <div className="relative w-full aspect-[4/3]">
                   <Image 
@@ -138,8 +138,8 @@ export default function Home() {
                     priority={category.title === 'Suits'} // Prioritize loading the first image
                   />
                 </div>
-                <div className="absolute inset-0 bg-black/40 flex items-center justify-center rounded-xl">
-                  <h4 className="text-3xl font-semibold text-white">{category.title}</h4>
+                <div className="absolute inset-0 bg-black/50 flex items-center justify-center rounded-2xl">
+                  <h4 className="text-4xl font-extrabold text-yellow-600">{category.title}</h4>
                 </div>
               </Link>
             );
@@ -148,33 +148,33 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="bg-gray-200 py-20 text-center rounded-lg shadow-inner max-w-4xl mx-auto">
-        <h3 className="text-4xl font-semibold mb-6">About Us</h3>
-        <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+      <section id="about" className="bg-gray-100 py-24 text-center rounded-2xl shadow-inner max-w-4xl mx-auto">
+        <h3 className="text-5xl font-extrabold mb-8">About Us</h3>
+        <p className="text-2xl text-gray-700 max-w-2xl mx-auto leading-relaxed">
           Pambakali Outfit Store offers premium quality clothing for all occasions. We focus on style, comfort, and affordable fashion for everyone.
         </p>
       </section>
 
       {/* Upload Image Button Section at Bottom */}
-      <section className="text-center my-12">
+      <section className="text-center my-16">
         <Link href="/uploadimage">
-          <button className="bg-yellow-500 text-white px-8 py-4 rounded-full text-xl hover:bg-yellow-600 transition-shadow shadow-md hover:shadow-xl">
+          <button className="bg-yellow-500 text-black font-semibold px-10 py-4 rounded-full text-2xl hover:bg-yellow-600 transition-shadow shadow-lg hover:shadow-2xl">
             Upload Image
           </button>
         </Link>
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 text-center max-w-3xl mx-auto">
-        <h3 className="text-4xl font-semibold mb-6">Contact Us</h3>
-        <p className="mb-4 leading-relaxed">
+      <section id="contact" className="py-24 text-center max-w-3xl mx-auto">
+        <h3 className="text-5xl font-extrabold mb-8">Contact Us</h3>
+        <p className="mb-6 leading-relaxed text-lg text-gray-700">
           <span className="contact-marquee">
             <div>Phone: 0740107651</div>
             <div>Phone: 0629746975</div>
             <div>Email: gealex108@gmail.com</div>
           </span>
         </p>
-        <button className="bg-yellow-500 text-white px-8 py-4 rounded-full text-xl hover:bg-yellow-600 transition-shadow shadow-md hover:shadow-xl">
+        <button className="bg-yellow-500 text-black font-semibold px-10 py-4 rounded-full text-2xl hover:bg-yellow-600 transition-shadow shadow-lg hover:shadow-2xl">
           Contact Us
         </button>
       </section>

@@ -29,7 +29,7 @@ export default function Navbar() {
   return (
     <>
       <style>{keyframes}</style>
-      <nav className="bg-black text-white py-4 px-6 shadow">
+      <nav className="bg-black text-white py-4 px-6 shadow-lg sticky top-0 z-50">
         <div className="container mx-auto flex items-center justify-between flex-wrap">
           <Link href="/" className="flex items-center gap-2 overflow-hidden">
             <Image src="/logo.png" alt="Pambakali Logo" width={40} height={40} />
@@ -65,10 +65,10 @@ export default function Navbar() {
               isOpen ? 'block' : 'hidden'
             }`}
           >
-            <div className="flex flex-col sm:flex-row sm:gap-6 text-sm sm:text-lg font-medium mt-4 sm:mt-0">
-              <Link href="/" onClick={() => setIsOpen(false)}>Home</Link>
-              <Link href="/about" onClick={() => setIsOpen(false)}>About Us</Link>
-              <Link href="/contact" onClick={() => setIsOpen(false)}>Contact</Link>
+            <div className="flex flex-col sm:flex-row sm:gap-8 text-sm sm:text-lg font-semibold mt-4 sm:mt-0">
+              <Link href="/" onClick={() => setIsOpen(false)} className="hover:text-yellow-400 transition-colors duration-300">Home</Link>
+              <Link href="/about" onClick={() => setIsOpen(false)} className="hover:text-yellow-400 transition-colors duration-300">About Us</Link>
+              <Link href="/contact" onClick={() => setIsOpen(false)} className="hover:text-yellow-400 transition-colors duration-300">Contact</Link>
             </div>
           </div>
         </div>

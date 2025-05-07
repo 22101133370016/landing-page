@@ -70,9 +70,9 @@ export default function ContactClient() {
   };
 
   return (
-    <section className="bg-gray-100 py-20 text-center min-h-screen">
-      <h1 className="text-4xl font-bold mb-6">Contact Us</h1>
-      <p className="text-lg text-gray-600 mb-12">
+    <section className="bg-gray-50 py-20 text-center min-h-screen">
+      <h1 className="text-5xl font-extrabold mb-8 text-gray-900">Contact Us</h1>
+      <p className="text-lg text-gray-600 mb-12 max-w-xl mx-auto">
         Fill in the form below and we&apos;ll get back to you shortly.
       </p>
 
@@ -85,7 +85,7 @@ export default function ContactClient() {
                 alt="Selected Product"
                 fill
                 style={{ objectFit: 'contain' }}
-                className="rounded-lg shadow-md"
+                className="rounded-lg shadow-lg"
               />
             </div>
           ) : (
@@ -94,7 +94,7 @@ export default function ContactClient() {
               alt="Selected Product"
               width={300}
               height={300}
-              className="rounded-lg shadow-md"
+              className="rounded-lg shadow-lg"
             />
           )}
           <p className="mt-2 text-sm text-gray-700">
@@ -103,59 +103,60 @@ export default function ContactClient() {
         </div>
       )}
 
-      <div className="max-w-3xl mx-auto bg-white rounded-xl shadow-md p-8 text-left">
-        <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
+      <div className="max-w-3xl mx-auto bg-white rounded-3xl shadow-lg p-10 text-left">
+        <form className="space-y-8" onSubmit={handleSubmit(onSubmit)}>
           <div>
-            <label className="block font-medium">Name</label>
+            <label className="block font-semibold text-gray-800 mb-2">Name</label>
             <input
               {...register('name', { required: 'Name is required' })}
-              className="w-full border p-2 rounded"
+              className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
             />
-            {errors.name && <p className="text-red-500">{errors.name.message}</p>}
+            {errors.name && <p className="text-red-600 mt-1">{errors.name.message}</p>}
           </div>
 
           <div>
-            <label className="block font-medium">Email</label>
+            <label className="block font-semibold text-gray-800 mb-2">Email</label>
             <input
               {...register('email', { required: 'Email is required' })}
               type="email"
-              className="w-full border p-2 rounded"
+              className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
             />
-            {errors.email && <p className="text-red-500">{errors.email.message}</p>}
+            {errors.email && <p className="text-red-600 mt-1">{errors.email.message}</p>}
           </div>
 
           <div>
-            <label className="block font-medium">Phone</label>
+            <label className="block font-semibold text-gray-800 mb-2">Phone</label>
             <input
               {...register('phone')}
-              className="w-full border p-2 rounded"
+              className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
             />
           </div>
 
           <div>
-            <label className="block font-medium">Location</label>
+            <label className="block font-semibold text-gray-800 mb-2">Location</label>
             <input
               {...register('location')}
-              className="w-full border p-2 rounded"
+              className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
             />
           </div>
 
           <div>
-            <label className="block font-medium">Message</label>
+            <label className="block font-semibold text-gray-800 mb-2">Message</label>
             <textarea
               {...register('message', { required: 'Message is required' })}
-              className="w-full border p-2 rounded"
+              className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
+              rows={5}
             />
-            {errors.message && <p className="text-red-500">{errors.message.message}</p>}
+            {errors.message && <p className="text-red-600 mt-1">{errors.message.message}</p>}
           </div>
 
-          {submitError && <p className="text-red-600">{submitError}</p>}
-          {submitSuccess && <p className="text-green-600">Message sent successfully!</p>}
+          {submitError && <p className="text-red-700 font-semibold">{submitError}</p>}
+          {submitSuccess && <p className="text-green-700 font-semibold">Message sent successfully!</p>}
 
           <button
             type="submit"
             disabled={isSubmitting}
-            className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 disabled:opacity-60"
+            className="bg-yellow-500 text-black font-semibold px-8 py-3 rounded-full text-lg hover:bg-yellow-600 transition-shadow shadow-md hover:shadow-lg disabled:opacity-60"
           >
             {isSubmitting ? 'Sending...' : 'Send Message'}
           </button>

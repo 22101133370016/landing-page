@@ -62,6 +62,14 @@ export default function Home() {
             0% { transform: translateX(100%); }
             100% { transform: translateX(-100%); }
           }
+          .contact-marquee {
+            display: inline-block;
+            white-space: nowrap;
+            color: #FFD700;
+            font-weight: 700;
+            font-size: 1.25rem; /* text-xl */
+            animation: marquee 15s linear infinite;
+          }
         `}</style>
 
         {[...Array(20)].map((_, i) => {
@@ -155,8 +163,10 @@ export default function Home() {
       {/* Contact Section */}
       <section id="contact" className="py-20 text-center max-w-3xl mx-auto">
         <h3 className="text-4xl font-semibold mb-6">Contact Us</h3>
-        <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-          Have questions or need assistance? We&apos;re here to help!
+        <p className="mb-4 leading-relaxed">
+          <span className="contact-marquee">
+            Phone: 0740107651 &nbsp; Or &nbsp; 0629746975 &nbsp; | &nbsp; Email: gealex108@gmail.com
+          </span>
         </p>
         <button className="bg-yellow-500 text-white px-8 py-4 rounded-full text-xl hover:bg-yellow-600 transition-shadow shadow-md hover:shadow-xl">
           Contact Us

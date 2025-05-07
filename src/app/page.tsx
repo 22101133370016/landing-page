@@ -68,7 +68,11 @@ export default function Home() {
             color: #FFD700;
             font-weight: 700;
             font-size: 1.25rem; /* text-xl */
-            animation: marquee 15s linear infinite;
+            animation: marquee 30s linear infinite;
+          }
+          .contact-marquee div {
+            display: block;
+            margin: 0.25rem 0;
           }
         `}</style>
 
@@ -165,7 +169,9 @@ export default function Home() {
         <h3 className="text-4xl font-semibold mb-6">Contact Us</h3>
         <p className="mb-4 leading-relaxed">
           <span className="contact-marquee">
-            Phone: 0740107651 &nbsp; Or &nbsp; 0629746975 &nbsp; | &nbsp; Email: gealex108@gmail.com
+            <div>Phone: 0740107651</div>
+            <div>Phone: 0629746975</div>
+            <div>Email: gealex108@gmail.com</div>
           </span>
         </p>
         <button className="bg-yellow-500 text-white px-8 py-4 rounded-full text-xl hover:bg-yellow-600 transition-shadow shadow-md hover:shadow-xl">

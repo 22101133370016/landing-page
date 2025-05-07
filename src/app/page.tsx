@@ -50,6 +50,18 @@ export default function Home() {
               opacity: 0;
             }
           }
+          .marquee {
+            display: inline-block;
+            white-space: nowrap;
+            color: #FFD700;
+            font-weight: 900;
+            font-size: 3.75rem; /* text-6xl */
+            animation: marquee 10s linear infinite;
+          }
+          @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+          }
         `}</style>
 
         {[...Array(20)].map((_, i) => {
@@ -71,8 +83,8 @@ export default function Home() {
           );
         })}
 
-        <h2 className="text-6xl font-extrabold mb-6 leading-tight relative z-10">
-          Welcome to Pambakali Outfit Store
+        <h2 className="mb-6 leading-tight relative z-10">
+          <span className="marquee">Welcome to Pambakali Outfit Store</span>
         </h2>
         <p className="text-2xl mb-8 max-w-3xl mx-auto leading-relaxed relative z-10">
           Discover the best in fashion: suits, t-shirts, jeans, shirts, shoes, and women&apos;s clothing.

@@ -67,15 +67,8 @@ export default function Navbar() {
           >
             <div className="flex flex-col sm:flex-row sm:gap-6 text-sm sm:text-lg font-medium mt-4 sm:mt-0">
               <Link href="/" onClick={() => setIsOpen(false)}>Home</Link>
-              <Link href="/tshirts" onClick={() => setIsOpen(false)}>T-Shirts</Link>
-              <Link href="/shoes" onClick={() => setIsOpen(false)}>Shoes</Link>
-              <Link href="/suits" onClick={() => setIsOpen(false)}>Suits</Link>
-              <Link href="/jeans" onClick={() => setIsOpen(false)}>Jeans</Link>
-              <Link href="/shirts" onClick={() => setIsOpen(false)}>Shirts</Link>
-              <Link href="/women" onClick={() => setIsOpen(false)}>Women&apos;s Fashion</Link>
+              <Link href="/about" onClick={() => setIsOpen(false)}>About Us</Link>
               <Link href="/contact" onClick={() => setIsOpen(false)}>Contact</Link>
-              <Link href="/upload-image" onClick={() => setIsOpen(false)}>Upload Image</Link>
-              <Link href="/image-gallery" onClick={() => setIsOpen(false)}>Image Gallery</Link>
             </div>
           </div>
         </div>

@@ -17,6 +17,7 @@ interface FormData {
 export default function ContactClient() {
   const searchParams = useSearchParams();
   const selectedImage = searchParams.get('image') || '';
+  const selectedPrice = searchParams.get('price') || '';
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
@@ -42,6 +43,7 @@ export default function ContactClient() {
       const templateParams = {
         ...data,
         imageUrl: selectedImage,
+        price: selectedPrice,
       };
 
       const result = await emailjs.send(serviceId, templateId, templateParams, publicKey);
@@ -92,6 +94,9 @@ export default function ContactClient() {
             />
           )}
           <p className="mt-2 text-sm text-gray-700">You are sending a message about this product.</p>
+          {selectedPrice && (
+            <p className="mt-1 text-lg font-semibold text-gray-900">Price: ${parseFloat(selectedPrice).toFixed(2)}</p>
+          )}
         </div>
       )}
 

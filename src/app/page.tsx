@@ -31,7 +31,7 @@ export default function Home() {
   return (
     <div id="home" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white text-black">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-pink-500 via-red-500 to-yellow-400 text-white py-24 text-center rounded-lg shadow-md relative overflow-hidden">
+      <section className="bg-gradient-to-r from-amber-50 via-amber-100 to-yellow-100 text-gray-900 py-24 text-center rounded-lg shadow-md relative overflow-hidden">
         <style>{`
           .star {
             position: absolute;
@@ -53,7 +53,7 @@ export default function Home() {
           .marquee {
             display: inline-block;
             white-space: nowrap;
-            color: white;
+            color: #6b4c3b; /* warm brown */
             font-weight: 900;
             font-size: 1.75rem; /* updated font size */
             background-color: transparent; /* removed background color */
@@ -67,7 +67,7 @@ export default function Home() {
           .contact-marquee {
             display: inline-block;
             white-space: nowrap;
-            color: white;
+            color: #6b4c3b; /* warm brown */
             font-weight: 700;
             font-size: 1.25rem; /* text-xl */
             animation: marquee 15s linear infinite;
@@ -78,7 +78,7 @@ export default function Home() {
             margin: 0.25rem 0;
           }
           .category-title {
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
           }
         `}</style>
         {[...Array(20)].map((_, i) => {
@@ -106,15 +106,15 @@ export default function Home() {
           Discover the best in fashion: suits, t-shirts, jeans, shirts, shoes, and women&apos;s clothing.
         </p>
         <Link href="#shop" scroll={true} legacyBehavior>
-          <a className="bg-white text-pink-600 font-semibold px-10 py-5 rounded-full text-2xl hover:bg-gray-100 transition-shadow shadow-lg hover:shadow-2xl relative z-10 inline-block">
+          <a className="bg-white text-amber-700 font-semibold px-10 py-5 rounded-full text-2xl hover:bg-amber-100 transition-shadow shadow-lg hover:shadow-2xl relative z-10 inline-block">
             Shop Now
           </a>
         </Link>
       </section>
 
       {/* Categories Section */}
-      <section id="shop" className="py-24 bg-pink-50 rounded-lg shadow-inner mb-20">
-        <h3 className="text-5xl font-extrabold text-center mb-20 text-pink-700">
+      <section id="shop" className="py-24 bg-amber-50 rounded-lg shadow-inner mb-20">
+        <h3 className="text-5xl font-extrabold text-center mb-20 text-amber-700">
           Shop by Categories
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 max-w-7xl mx-auto">
@@ -162,9 +162,9 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-24 text-center max-w-3xl mx-auto">
+      <section id="contact" className="py-24 text-center max-w-3xl mx-auto rounded-2xl shadow-inner" style={{ backgroundColor: 'wheat' }}>
         <h3 className="text-5xl font-extrabold mb-8">Contact Us</h3>
-        <button className="bg-pink-600 text-white font-semibold px-10 py-4 rounded-full text-2xl hover:bg-pink-700 transition-shadow shadow-lg hover:shadow-2xl mb-6">
+        <button className="bg-amber-700 text-white font-semibold px-10 py-4 rounded-full text-2xl hover:bg-amber-800 transition-shadow shadow-lg hover:shadow-2xl mb-6">
           Contact Us
         </button>
         <p className="leading-relaxed text-lg contact-marquee max-w-md mx-auto">

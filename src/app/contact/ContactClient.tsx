@@ -70,7 +70,7 @@ export default function ContactClient() {
   };
 
   return (
-    <section className="bg-gray-50 py-20 text-center min-h-screen">
+    <section className="bg-gray-100 py-20 text-center min-h-screen">
       <h1 className="text-5xl font-extrabold mb-8 text-gray-900">Contact Us</h1>
       <p className="text-lg text-gray-600 mb-12 max-w-xl mx-auto">
         Fill in the form below and we&apos;ll get back to you shortly.
@@ -103,7 +103,7 @@ export default function ContactClient() {
         </div>
       )}
 
-      <div className="max-w-3xl mx-auto bg-white rounded-3xl shadow-lg p-10 text-left">
+      <div className="w-[60%] mx-auto bg-white rounded-3xl shadow-lg p-10 text-left">
         <form className="space-y-8" onSubmit={handleSubmit(onSubmit)}>
           <div>
             <label className="block font-semibold text-gray-800 mb-2">Name</label>

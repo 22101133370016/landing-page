@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react"; // ✅ Now using useEffect directly
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -26,37 +26,37 @@ export default function WomenImages() {
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 bg-transparent p-6">
       {/* Static Images */}
       <Link href={{ pathname: "/contact", query: { image: "/image1/women.jpg" } }}>
-        <div className="block transform transition-transform duration-300 hover:scale-105 hover:shadow-lg cursor-pointer">
+        <div className="block transform transition-transform duration-300 hover:scale-102 hover:shadow-md cursor-pointer rounded-lg overflow-hidden">
           <Image
             src="/image1/women.jpg"
             alt="Women's Fashion 1"
             width={300}
             height={300}
-            className="mx-auto rounded-[34px]"
+            className="mx-auto rounded-lg"
             priority
           />
         </div>
       </Link>
       <Link href={{ pathname: "/contact", query: { image: "/image1/women1.jpg" } }}>
-        <div className="block transform transition-transform duration-300 hover:scale-105 hover:shadow-lg cursor-pointer">
+        <div className="block transform transition-transform duration-300 hover:scale-102 hover:shadow-md cursor-pointer rounded-lg overflow-hidden">
           <Image
             src="/image1/women1.jpg"
             alt="Women's Fashion 2"
             width={300}
             height={300}
-            className="mx-auto rounded-[34px]"
+            className="mx-auto rounded-lg"
             priority
           />
         </div>
       </Link>
       <Link href={{ pathname: "/contact", query: { image: "/image1/womens.jpg" } }}>
-        <div className="block transform transition-transform duration-300 hover:scale-105 hover:shadow-lg cursor-pointer">
+        <div className="block transform transition-transform duration-300 hover:scale-102 hover:shadow-md cursor-pointer rounded-lg overflow-hidden">
           <Image
             src="/image1/womens.jpg"
             alt="Women's Fashion 3"
             width={300}
             height={300}
-            className="mx-auto rounded-[34px]"
+            className="mx-auto rounded-lg"
             priority
           />
         </div>
@@ -65,13 +65,13 @@ export default function WomenImages() {
       {/* Dynamic Images from localStorage */}
       {uploadedImages.map((img) => (
         <Link key={img.id} href={{ pathname: "/contact", query: { image: img.url } }}>
-          <div className="block transform transition-transform duration-300 hover:scale-105 hover:shadow-lg cursor-pointer">
+          <div className="block transform transition-transform duration-300 hover:scale-102 hover:shadow-md cursor-pointer rounded-lg overflow-hidden">
             <Image
               src={img.url}
               alt={img.category}
               width={300}
               height={300}
-              className="mx-auto rounded-[34px] object-cover"
+              className="mx-auto rounded-lg object-cover"
             />
           </div>
         </Link>

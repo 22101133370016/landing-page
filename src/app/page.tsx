@@ -29,9 +29,9 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <div id="home" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div id="home" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white text-black">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-gray-100 to-gray-300 text-gray-900 py-24 text-center rounded-lg shadow-2xl relative overflow-hidden">
+      <section className="bg-gradient-to-r from-pink-500 via-red-500 to-yellow-400 text-white py-24 text-center rounded-lg shadow-md relative overflow-hidden">
         <style>{`
           .star {
             position: absolute;
@@ -53,10 +53,12 @@ export default function Home() {
           .marquee {
             display: inline-block;
             white-space: nowrap;
-            color: #B8860B; /* dark goldenrod */
+            color: white;
             font-weight: 900;
-            font-size: 3.75rem; /* text-6xl */
+            font-size: 1.75rem; /* updated font size */
+            background-color: transparent; /* removed background color */
             animation: marquee 10s linear infinite;
+            animation-iteration-count: infinite;
           }
           @keyframes marquee {
             0% { transform: translateX(100%); }
@@ -65,17 +67,20 @@ export default function Home() {
           .contact-marquee {
             display: inline-block;
             white-space: nowrap;
-            color: #B8860B;
+            color: white;
             font-weight: 700;
             font-size: 1.25rem; /* text-xl */
-            animation: marquee 30s linear infinite;
+            animation: marquee 15s linear infinite;
+            animation-iteration-count: infinite;
           }
           .contact-marquee div {
             display: block;
             margin: 0.25rem 0;
           }
+          .category-title {
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+          }
         `}</style>
-
         {[...Array(20)].map((_, i) => {
           const size = Math.random() * 3 + 1;
           const left = Math.random() * 100;
@@ -94,24 +99,25 @@ export default function Home() {
             />
           );
         })}
-
         <h2 className="mb-8 leading-tight relative z-10 text-5xl sm:text-6xl font-extrabold tracking-tight">
-          <span className="marquee">Welcome to Pambakali Outfit Store</span>
+          <span className="marquee">welcome to Pambakali Outfit Store we care our customer</span>
         </h2>
-        <p className="text-3xl mb-12 max-w-3xl mx-auto leading-relaxed relative z-10 text-yellow-700">
+        <p className="text-3xl mb-12 max-w-3xl mx-auto leading-relaxed relative z-10">
           Discover the best in fashion: suits, t-shirts, jeans, shirts, shoes, and women&apos;s clothing.
         </p>
-        <button className="bg-yellow-500 text-black font-semibold px-10 py-5 rounded-full text-2xl hover:bg-yellow-600 transition-shadow shadow-lg hover:shadow-2xl relative z-10">
-          Shop Now
-        </button>
+        <Link href="#shop" scroll={true} legacyBehavior>
+          <a className="bg-white text-pink-600 font-semibold px-10 py-5 rounded-full text-2xl hover:bg-gray-100 transition-shadow shadow-lg hover:shadow-2xl relative z-10 inline-block">
+            Shop Now
+          </a>
+        </Link>
       </section>
 
       {/* Categories Section */}
-      <section id="shop" className="py-24">
-        <h3 className="text-5xl font-extrabold text-center mb-20 text-gray-900">
+      <section id="shop" className="py-24 bg-pink-50 rounded-lg shadow-inner mb-20">
+        <h3 className="text-5xl font-extrabold text-center mb-20 text-pink-700">
           Shop by Categories
         </h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 max-w-7xl mx-auto">
           {categories.map((category) => {
             const folderMap: Record<string, string> = {
               'Suits': 'suits',
@@ -126,7 +132,7 @@ export default function Home() {
               <Link
                 key={category.title}
                 href={href}
-                className="block relative rounded-2xl overflow-hidden shadow-2xl hover:shadow-4xl transition-all duration-500"
+                className="block relative rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300"
               >
                 <div className="relative w-full aspect-[4/3]">
                   <Image 
@@ -138,8 +144,8 @@ export default function Home() {
                     priority={category.title === 'Suits'} // Prioritize loading the first image
                   />
                 </div>
-                <div className="absolute inset-0 bg-black/50 flex items-center justify-center rounded-2xl">
-                  <h4 className="text-4xl font-extrabold text-yellow-600">{category.title}</h4>
+                <div className="absolute inset-0 flex items-center justify-center rounded-2xl">
+                  <h4 className="text-4xl font-extrabold text-white category-title">{category.title}</h4>
                 </div>
               </Link>
             );
@@ -148,35 +154,24 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="bg-gray-100 py-24 text-center rounded-2xl shadow-inner max-w-4xl mx-auto">
+      <section id="about" className="bg-white py-24 text-center rounded-2xl shadow-inner max-w-4xl mx-auto">
         <h3 className="text-5xl font-extrabold mb-8">About Us</h3>
         <p className="text-2xl text-gray-700 max-w-2xl mx-auto leading-relaxed">
           Pambakali Outfit Store offers premium quality clothing for all occasions. We focus on style, comfort, and affordable fashion for everyone.
         </p>
       </section>
 
-      {/* Upload Image Button Section at Bottom */}
-      <section className="text-center my-16">
-        <Link href="/uploadimage">
-          <button className="bg-yellow-500 text-black font-semibold px-10 py-4 rounded-full text-2xl hover:bg-yellow-600 transition-shadow shadow-lg hover:shadow-2xl">
-            Upload Image
-          </button>
-        </Link>
-      </section>
-
       {/* Contact Section */}
       <section id="contact" className="py-24 text-center max-w-3xl mx-auto">
         <h3 className="text-5xl font-extrabold mb-8">Contact Us</h3>
-        <p className="mb-6 leading-relaxed text-lg text-gray-700">
-          <span className="contact-marquee">
-            <div>Phone: 0740107651</div>
-            <div>Phone: 0629746975</div>
-            <div>Email: gealex108@gmail.com</div>
-          </span>
-        </p>
-        <button className="bg-yellow-500 text-black font-semibold px-10 py-4 rounded-full text-2xl hover:bg-yellow-600 transition-shadow shadow-lg hover:shadow-2xl">
+        <button className="bg-pink-600 text-white font-semibold px-10 py-4 rounded-full text-2xl hover:bg-pink-700 transition-shadow shadow-lg hover:shadow-2xl mb-6">
           Contact Us
         </button>
+        <p className="leading-relaxed text-lg contact-marquee max-w-md mx-auto">
+          <div>Phone: 0740107651</div>
+          <div>Phone: 0629746975</div>
+          <div>Email: gealex108@gmail.com</div>
+        </p>
       </section>
     </div>
   );

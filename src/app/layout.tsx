@@ -1,4 +1,5 @@
-import './globals.css';
+import './globals.css'
+import './mobileOverride.css'
 import type { Metadata } from 'next';
 import Navbar from './components/Navbar';
 
@@ -10,14 +11,14 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="bg-gray-100 text-gray-900">
+      <body className="text-gray-900">
         <header>
           <Navbar />
         </header>
 
         <main>{children}</main>
 
-        <footer className="bg-black text-white text-center py-4">
+        <footer className="bg-yellow-900 text-yellow-100 text-center py-4">
           <p>&copy; {new Date().getFullYear()} Pambakali Outfit Store. All rights reserved.</p>
         </footer>
       </body>

@@ -31,7 +31,7 @@ export default function Shoes() {
             alt="Shoes Collection"
             width={300}
             height={300}
-            className="mx-auto rounded-[34px] hover:scale-105 hover:shadow-lg transition-transform duration-300"
+            className="mx-auto rounded-lg hover:scale-102 hover:shadow-md transition-transform duration-300"
           />
         </Link>
         <Link href={{ pathname: "/contact", query: { image: "/image1/shoes1.jpg" } }}>
@@ -40,7 +40,7 @@ export default function Shoes() {
             alt="Shoes Collection"
             width={300}
             height={300}
-            className="mx-auto rounded-[34px] hover:scale-105 hover:shadow-lg transition-transform duration-300"
+            className="mx-auto rounded-lg hover:scale-102 hover:shadow-md transition-transform duration-300"
           />
         </Link>
         <Link href={{ pathname: "/contact", query: { image: "/image1/shoes2.jpg" } }}>
@@ -49,7 +49,7 @@ export default function Shoes() {
             alt="Shoes Collection"
             width={300}
             height={300}
-            className="mx-auto rounded-[34px] hover:scale-105 hover:shadow-lg transition-transform duration-300"
+            className="mx-auto rounded-lg hover:scale-102 hover:shadow-md transition-transform duration-300"
           />
         </Link>
 
@@ -60,7 +60,7 @@ export default function Shoes() {
               alt={img.category}
               width={300}
               height={300}
-              className="mx-auto rounded-[34px] hover:scale-105 hover:shadow-lg transition-transform duration-300 object-cover"
+              className="mx-auto rounded-lg hover:scale-102 hover:shadow-md transition-transform duration-300 object-cover"
             />
           </Link>
         ))}
